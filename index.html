@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyShop | Home</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      padding-top: 70px;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+      background: #f0f2f5;
+    }
+
+    /* Navbar */
+    /* Navbar Styles - For all pages */
+.navbar {
+  background: #1a1a1a; /* Dark background */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Subtle shadow */
+  padding: 15px 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #ff416c; /* Hover color */
+
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #ff416c; /* Hover color */
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+  font-weight: 500;
+  margin-left: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ff416c; /* Hover color */
+  transform: scale(1.1);
+}
+
+.navbar-nav .nav-link.active {
+  color: #ff416c; /* Active page color */
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  color: #fff;
+}
+
+/* Optional: Change navbar on scroll */
+.navbar.scrolled {
+  background: #111; /* Darker background when scrolling */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+.nav-link i {
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover i {
+  transform: translateY(-2px) scale(1.1);
+}
+
+    /* Hero Section */
+    #home-hero {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    #home-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    #home-hero p {
+      font-size: 1.2rem;
+    }
+    #home-hero .btn-primary {
+      background: #ff416c;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    #home-hero .btn-primary:hover {
+      background: #ff4b2b;
+      transform: scale(1.05);
+    }
+
+    /* About Me Section */
+    #about {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #333;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    /* Fade-in animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-in-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+        background:linear-gradient(135deg,#0f172a,#1e293b);
+      color: #fff;
+      text-align: center;
+      padding: 20px 20px;
+    }
+    footer a {
+      color: #fff;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    footer a:hover {
+      color: #ffeb3b;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <i class="bi bi-bag-check-fill me-1"></i> MyShop
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">
+            <i class="bi bi-house-door me-1"></i> Home
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">
+            <i class="bi bi-grid-3x3-gap me-1"></i> Products
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="cart.html">
+            <i class="bi bi-cart3 me-1"></i> Cart
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="checkout.html">
+            <i class="bi bi-credit-card me-1"></i> Checkout
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="sign.html">
+            <i class="bi bi-person-circle me-1"></i> Sign In
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section id="home-hero" class="fade-in">
+    <div class="container">
+      <h1>Welcome to MyShop!</h1>
+      <p>Your one-stop online store for amazing products.</p>
+      <a href="products.html" class="btn btn-primary btn-lg mt-3">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="fade-in">
+    <div class="container">
+      <h2 class="mb-4">About Me</h2>
+      <p>Hello! I am MD Rifat, a passionate web developer and entrepreneur. I love creating beautiful and functional websites, and this e-commerce platform is my showcase project to provide you with quality products and excellent service.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="fade-in">
+    <div class="container">
+      <h5>Contact Me</h5>
+      <p>Connect with me via social media:</p>
+      <div class="d-flex justify-content-center gap-3 mb-3">
+        <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook fs-4"></i></a>
+        <a href="https://t.me/" target="_blank"><i class="bi bi-telegram fs-4"></i></a>
+        <a href="https://wa.me/" target="_blank"><i class="bi bi-whatsapp fs-4"></i></a>
+      </div>
+      <p class="mb-0">&copy; 2025 MyShop. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Fade-in sections on scroll
+    const fadeInSections = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    fadeInSections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>

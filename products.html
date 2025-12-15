@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyShop | Products</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      padding-top: 70px;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+      background: #f0f2f5;
+    }
+/* Navbar Styles - For all pages */
+.navbar {
+  background: #1a1a1a; /* Dark background */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Subtle shadow */
+  padding: 15px 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #ff416c; /* Hover color */
+
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #ff416c; /* Hover color */
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+  font-weight: 500;
+  margin-left: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ff416c; /* Hover color */
+  transform: scale(1.1);
+}
+
+.navbar-nav .nav-link.active {
+  color: #ff416c; /* Active page color */
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  color: #fff;
+}
+
+/* Optional: Change navbar on scroll */
+.navbar.scrolled {
+  background: #111; /* Darker background when scrolling */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+.nav-link i {
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover i {
+  transform: translateY(-2px) scale(1.1);
+}
+    /* Hero Section */
+    #hero {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    #hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    #hero p {
+      font-size: 1.2rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 0;
+    }
+
+    /* Fade-in animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-in-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Product Cards */
+    .card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+    .card-img-top {
+      transition: transform 0.3s ease;
+    }
+    .card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+    .card-body h5 {
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: #ff416c;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #ff4b2b;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    footer a {
+      color: #fff;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    footer a:hover {
+      color: #ffeb3b;
+      transform: scale(1.2);
+    }
+    /* Cart Notification */
+.cart-notification {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  background: #28a745;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.cart-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <i class="bi bi-bag-check-fill me-1"></i> MyShop
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">
+            <i class="bi bi-house-door me-1"></i> Home
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">
+            <i class="bi bi-grid-3x3-gap me-1"></i> Products
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="cart.html">
+            <i class="bi bi-cart3 me-1"></i> Cart
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="checkout.html">
+            <i class="bi bi-credit-card me-1"></i> Checkout
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="sign.html">
+            <i class="bi bi-person-circle me-1"></i> Sign In
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Hero Section -->
+  <section id="hero" class="fade-in">
+    <div class="container">
+      <h1>Our Products</h1>
+      <p>Browse all our amazing products and find your favorite!</p>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section id="products-grid" class="fade-in">
+   <div class="container">
+  <div class="row g-4">
+    <!-- Product 1 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://.placeholder.com/300x200" class="card-img-top" alt="Product 1">
+        <div class="card-body text-center">
+          <h5 class="card-title">Product 1</h5>
+          <p class="card-text">$49.99</p>
+          <button class="btn btn-primary add-to-cart" data-name="Product 1" data-price="49.99">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product 2 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 2">
+        <div class="card-body text-center">
+          <h5 class="card-title">Product 2</h5>
+          <p class="card-text">$29.99</p>
+          <button class="btn btn-primary add-to-cart" data-name="Product 2" data-price="29.99">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product 3 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 3">
+        <div class="card-body text-center">
+          <h5 class="card-title">Product 3</h5>
+          <p class="card-text">$19.99</p>
+          <button class="btn btn-primary add-to-cart" data-name="Product 3" data-price="19.99">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product 4 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 4">
+        <div class="card-body text-center">
+          <h5 class="card-title">Product 4</h5>
+          <p class="card-text">$39.99</p>
+          <button class="btn btn-primary add-to-cart" data-name="Product 4" data-price="39.99">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product 5 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 5">
+        <div class="card-body text-center">
+          <h5 class="card-title">Product 5</h5>
+          <p class="card-text">$59.99</p>
+          <button class="btn btn-primary add-to-cart" data-name="Product 5" data-price="59.99">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product 6 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 6">
+        <div class="card-body text-center">
+          <h5 class="card-title">Product 6</h5>
+          <p class="card-text">$24.99</p>
+          <button class="btn btn-primary add-to-cart" data-name="Product 6" data-price="24.99">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product 7 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 7">
+        <div class="card-body text-center">
+          <h5 class="card-title">Product 7</h5>
+          <p class="card-text">$34.99</p>
+          <button class="btn btn-primary add-to-cart" data-name="Product 7" data-price="34.99">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product 8 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 8">
+        <div class="card-body text-center">
+          <h5 class="card-title">Product 8</h5>
+          <p class="card-text">$44.99</p>
+          <button class="btn btn-primary add-to-cart" data-name="Product 8" data-price="44.99">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product 9 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 9">
+        <div class="card-body text-center">
+          <h5 class="card-title">Product 9</h5>
+          <p class="card-text">$54.99</p>
+          <button class="btn btn-primary add-to-cart" data-name="Product 9" data-price="54.99">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+<!-- Cart Notification -->
+<div id="cart-notification" class="cart-notification">
+  <i class="bi bi-check-circle-fill me-2"></i>
+  <span id="cart-message"></span>
+</div>
+  <!-- Footer -->
+  <footer class="fade-in">
+    <div class="container">
+      <h5>Contact Me</h5>
+      <p>Connect with me via social media:</p>
+      <div class="d-flex justify-content-center gap-3 mb-3">
+        <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook fs-4"></i></a>
+        <a href="https://t.me/" target="_blank"><i class="bi bi-telegram fs-4"></i></a>
+        <a href="https://wa.me/" target="_blank"><i class="bi bi-whatsapp fs-4"></i></a>
+      </div>
+      <p class="mb-0">&copy; 2025 MyShop. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Fade-in sections on scroll
+    const fadeInSections = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    fadeInSections.forEach(section => observer.observe(section));
+    // Navbar scroll effect
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  if(window.scrollY > 50){
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+const buttons = document.querySelectorAll('.add-to-cart');
+const notification = document.getElementById('cart-notification');
+const message = document.getElementById('cart-message');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.dataset.name;
+    const price = parseFloat(btn.dataset.price);
+    
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // ✅ Check if product already exists
+    const existingItem = cart.find(item => item.name === name);
+    
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({
+        name: name,
+        price: price,
+        quantity: 1
+      });
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // 🔔 Notification
+    message.textContent = `${name} added to cart`;
+    notification.classList.add('show');
+    
+    setTimeout(() => {
+      notification.classList.remove('show');
+    }, 2000);
+  });
+});
+  </script>
+</body>
+</html>
